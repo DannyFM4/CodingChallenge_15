@@ -21,6 +21,21 @@ function addRiskItem(riskName, riskLevel, department) {
         <p>Department: ${department}</p>
     `;
 
+    //Task 3: Removing Risk Items
+
+    // grabs element by id, gives it text and an ID
+    const resolveButton = document.createElement("button");
+    resolveButton.textContent = "Resolve";
+    resolveButton.classList.add("resolveButton");
+
+    //uses an eventlistener for when resolve is clicked to delete the card
+    resolveButton.addEventListener("click", function () {
+        riskDashContainer.removeChild(riskCard);
+    });
+
+    //adds the button to the cards
+    riskCard.appendChild(resolveButton);
+
     // adds the card to the dashboard container
     riskDashContainer.appendChild(riskCard);
 };
