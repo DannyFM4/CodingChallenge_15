@@ -61,3 +61,6 @@ newRisk.addEventListener("submit", (event) => {
     addRiskItem(riskName, riskLevel, department);
 
 });
+
+//Task 3 - test data
+addRiskItem("Market Fluctuations", "High", "Finance");
