@@ -29,8 +29,11 @@ function addRiskItem(riskName, riskLevel, department) {
     resolveButton.classList.add("resolveButton");
 
     //uses an eventlistener for when resolve is clicked to delete the card
-    resolveButton.addEventListener("click", function () {
+    resolveButton.addEventListener("click", function (event) {
         riskDashContainer.removeChild(riskCard);
+
+        // Task 6 - adding a stop propagation
+        event.stopPropagation();
     });
 
 
@@ -111,7 +114,7 @@ addRiskItem("HR Compliance Issue", "Low", "Human Resources");
 const increaseLevelBtn = document.getElementById("increaseLevelBtn");
 
 //adds an event listener to the increase level button
-increaseLevelBtn.addEventListener('click', () => { //works on a click
+increaseLevelBtn.addEventListener('click', (event) => { //works on a click
     // grabs the risk cards by class and makes them an array
     const riskCards = document.querySelectorAll(".riskCard");
     const riskCardsArray = Array.from(riskCards);
@@ -132,6 +135,9 @@ increaseLevelBtn.addEventListener('click', () => { //works on a click
             card.style.backgroundColor = 'yellow'
         };
     });
+
+    // Task 6 - adding a stop propagation
+    event.stopPropagation();
 });
 
 
