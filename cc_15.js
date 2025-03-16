@@ -104,3 +104,36 @@ addRiskItem("Market Fluctuations", "High", "Finance");
 // Task 4 - test data
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+
+// Task 5: Implementing Bulk Updates
+
+// grabs the button by using its Id
+const increaseLevelBtn = document.getElementById("increaseLevelBtn");
+
+//adds an event listener to the increase level button
+increaseLevelBtn.addEventListener('click', () => { //works on a click
+    // grabs the risk cards by class and makes them an array
+    const riskCards = document.querySelectorAll(".riskCard");
+    const riskCardsArray = Array.from(riskCards);
+
+    // goes through the array and increase the levels based on value
+    riskCardsArray.forEach(card => {
+        // grabs the risk levels and the value of the risk level
+        const riskLevel = document.querySelectorAll("#riskLevel");
+        let riskLevelValue = riskLevel.value;
+
+        // uses if statement to go through the level and changes to a certain value based on previous value
+        if (riskLevelValue === 'Medium') {
+            riskLevel.value = 'High';
+            card.style.backgroundColor = 'red';
+        }
+        else if (riskLevelValue === 'Low') {
+            riskLevel.value = 'Medium';
+            card.style.backgroundColor = 'yellow'
+        };
+    });
+});
+
+
+// Task 5 - Test Data
+addRiskItem("Employee Retention", "Low", "HR");
