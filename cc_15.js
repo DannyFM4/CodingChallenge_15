@@ -98,6 +98,8 @@ newRisk.addEventListener("submit", (event) => {
     // runs the function, creating a new risk card
     addRiskItem(riskName, riskLevel, department);
 
+    // resets the input boxes to empty, once submitted
+    newRisk.reset();
 });
 
 //Task 3 - test data
